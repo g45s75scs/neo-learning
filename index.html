@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Neo Learning</title>
+
+<!-- ═══════════════════════════════════════════════
+  ✏️  EDIT SECTION — Change values here only
+═══════════════════════════════════════════════ -->
+<script>
+var PIXEL_ID     = '';  /* ← Add Pixel ID later */
+var CHANNEL_NAME = 'Neo Learning';
+var TG_LINK      = 'https://t.me/+BIX_Z77QH-w4YzY1';
+var TIMER        = 6;
+var AGENT_NAME   = 'Sumit Ads Agency';
+</script>
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- Meta Pixel -->
+<script>
+if(PIXEL_ID && PIXEL_ID.trim()!==''){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',PIXEL_ID);
+  fbq('track','PageView');
+  fbq('track','ViewContent');
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;min-height:100dvh}
+
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  background:#0f0f23;
+  color:#fff;
+  overflow-x:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  position:relative;
+}
+
+/* ── Animated gradient mesh background ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:-50%;
+  background:
+    radial-gradient(ellipse 40% 30% at 20% 20%, rgba(139,92,246,.35), transparent),
+    radial-gradient(ellipse 35% 40% at 80% 30%, rgba(59,130,246,.3), transparent),
+    radial-gradient(ellipse 50% 35% at 40% 80%, rgba(236,72,153,.25), transparent),
+    radial-gradient(ellipse 30% 50% at 70% 70%, rgba(34,211,238,.2), transparent);
+  animation:meshMove 20s ease-in-out infinite alternate;
+  filter:blur(50px);
+  opacity:.7;
+  will-change:transform;
+}
+@keyframes meshMove{
+  0%{transform:translate(0,0) rotate(0deg)}
+  100%{transform:translate(-40px,-25px) rotate(2deg)}
+}
+
+/* Lightweight subtle dot overlay - no image/font request */
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:radial-gradient(circle, rgba(255,255,255,.10) 1px, transparent 1.5px);
+  background-size:28px 28px;
+  pointer-events:none;
+  opacity:.22;
+}
+
+/* ── Glass card ── */
+.glass-card{
+  position:relative;
+  z-index:10;
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:28px;
+  padding:36px 28px 28px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.3),
+    inset 0 1px 0 rgba(255,255,255,.15);
+  animation:cardIn .8s cubic-bezier(.16,1,.3,1) both;
+  transform:translateZ(0);
+  will-change:transform;
+}
+@supports not (backdrop-filter:blur(24px)){
+  .glass-card{background:rgba(15,15,35,.92)}
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(40px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* ── Header ── */
+.head{text-align:center;margin-bottom:28px}
+
+.name{
+  font-size:32px;
+  font-weight:900;
+  letter-spacing:-.02em;
+  line-height:1.1;
+  background:linear-gradient(135deg,#fff 0%,#a78bfa 50%,#22d3ee 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+  animation:cardIn .8s .1s both;
+}
+
+.tagline{
+  font-size:13px;
+  color:rgba(255,255,255,.55);
+  font-weight:300;
+  margin-bottom:14px;
+  animation:cardIn .8s .15s both;
+}
+
+.live-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(34,211,238,.12);
+  border:1px solid rgba(34,211,238,.3);
+  backdrop-filter:blur(10px);
+  border-radius:100px;
+  padding:6px 14px;
+  font-size:11px;
+  font-weight:500;
+  color:#22d3ee;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  animation:cardIn .8s .2s both;
+}
+.pulse-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#22d3ee;
+  box-shadow:0 0 8px #22d3ee;
+  animation:pulse 2s ease infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.9)}}
+
+/* ── Features grid ── */
+.feat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:24px;
+  animation:cardIn .8s .25s both;
+}
+.feat{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  padding:14px 12px;
+  text-align:center;
+}
+.feat-icon{font-size:22px;margin-bottom:6px}
+.feat-text{font-size:11.5px;color:rgba(255,255,255,.7);font-weight:500;line-height:1.3}
+
+/* ── Timer ── */
+.timer-section{
+  margin-bottom:20px;
+  animation:cardIn .8s .3s both;
+}
+.timer-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.timer-label{
+  font-size:11px;
+  color:rgba(255,255,255,.5);
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.timer-num{
+  font-size:28px;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 0 20px rgba(167,139,250,.6);
+  transition:color .3s,text-shadow .3s;
+}
+.timer-num.urgent{
+  color:#f87171;
+  text-shadow:0 0 20px rgba(248,113,113,.6);
+}
+
+/* Circular progress */
+.progress-ring{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+}
+.progress-ring svg{
+  transform:rotate(-90deg);
+}
+.ring-bg{
+  fill:none;
+  stroke:rgba(255,255,255,.1);
+  stroke-width:6;
+}
+.ring-fill{
+  fill:none;
+  stroke:url(#grad);
+  stroke-width:6;
+  stroke-linecap:round;
+  stroke-dasharray:283;
+  stroke-dashoffset:0;
+  transition:stroke-dashoffset 1s linear,stroke .3s;
+  filter:drop-shadow(0 0 6px rgba(167,139,250,.4));
+}
+.ring-fill.urgent{stroke:#f87171;filter:drop-shadow(0 0 6px rgba(248,113,113,.5))}
+
+/* ── CTA button ── */
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  padding:17px;
+  background:linear-gradient(135deg,#8b5cf6,#3b82f6);
+  color:#fff;
+  border:none;
+  border-radius:16px;
+  font-size:15px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(139,92,246,.35);
+  transition:transform .2s,box-shadow .2s;
+  touch-action:manipulation;
+  position:relative;
+  overflow:hidden;
+  animation:cardIn .8s .35s both;
+}
+.btn::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.15),transparent);
+  opacity:0;
+  transition:opacity .2s;
+}
+.btn:hover::before{opacity:1}
+.btn:active{transform:scale(.98)}
+.btn-icon{font-size:18px}
+
+/* ── Disclaimer ── */
+.disc{
+  margin-top:20px;
+  padding:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  font-size:9.5px;
+  color:rgba(255,255,255,.4);
+  line-height:1.7;
+  text-align:center;
+  animation:cardIn .8s .4s both;
+}
+
+/* ── Footer ── */
+.foot{
+  margin-top:16px;
+  text-align:center;
+  font-size:10px;
+  color:rgba(255,255,255,.3);
+  font-weight:500;
+  animation:cardIn .8s .45s both;
+}
+.foot b{color:rgba(139,92,246,.7)}
+
+@media(max-width:480px){
+  body{padding:14px;align-items:center}
+  body::before{
+    animation:meshMove 25s ease-in-out infinite alternate;
+    filter:blur(40px);
+  }
+  .glass-card{
+    max-width:100%;
+    padding:30px 22px 24px;
+    border-radius:24px;
+  }
+  .name{font-size:29px}
+  .tagline{font-size:12.5px}
+  .feat{padding:13px 9px}
+  .btn{padding:16px}
+}
+
+@media(max-width:350px){
+  .feat-grid{grid-template-columns:1fr}
+  .glass-card{padding-left:18px;padding-right:18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="glass-card">
+
+  <!-- Header -->
+  <div class="head">
+    <div class="name" id="cname">Loading...</div>
+    <div class="tagline">Premium Learning Community</div>
+    <div class="live-pill">
+      <span class="pulse-dot"></span>
+      Active Now
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">📚</div>
+      <div class="feat-text">Expert Content</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🔐</div>
+      <div class="feat-text">Private Access</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-text">Instant Updates</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">💬</div>
+      <div class="feat-text">Active Community</div>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="timer-section">
+    <div class="timer-top">
+      <div class="timer-label">Joining in</div>
+      <div class="timer-num" id="tn">--</div>
+    </div>
+
+    <!-- Circular progress -->
+    <div class="progress-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#8b5cf6"/>
+            <stop offset="100%" style="stop-color:#3b82f6"/>
+          </linearGradient>
+        </defs>
+        <circle class="ring-bg" cx="50" cy="50" r="45"/>
+        <circle class="ring-fill" id="ring" cx="50" cy="50" r="45"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Button -->
+  <a class="btn" id="btn" href="#">
+    <span class="btn-icon">✈️</span>
+    Join Telegram Channel
+  </a>
+
+  <!-- Disclaimer -->
+  <div class="disc">
+    This channel is for educational and informational purposes only.<br/>
+    Content shared does not constitute any form of professional advice.<br/>
+    Please do your own research before taking any action.
+  </div>
+
+  <!-- Footer -->
+  <div class="foot">Educational Purpose Only<br/>Ads managed by <b id="agent"></b></div>
+
+</div>
+
+<script>
+/* Fill values */
+document.getElementById('cname').textContent = CHANNEL_NAME;
+document.getElementById('btn').href = TG_LINK;
+document.getElementById('agent').textContent = AGENT_NAME;
+
+/* Circular progress */
+const CIRCUMFERENCE = 2 * Math.PI * 45;
+const ring = document.getElementById('ring');
+const tn = document.getElementById('tn');
+const btn = document.getElementById('btn');
+
+ring.style.strokeDasharray = CIRCUMFERENCE;
+ring.style.strokeDashoffset = 0;
+
+var t = TIMER;
+tn.textContent = t+'s';
+
+function doRedirect(){
+  window.location.href = TG_LINK;
+  setTimeout(function(){
+    t=TIMER;
+    tn.textContent=t+'s';
+    tn.classList.remove('urgent');
+    ring.classList.remove('urgent');
+    ring.style.strokeDashoffset=0;
+    run();
+  },800);
+}
+
+function run(){
+  var iv=setInterval(function(){
+    t--;
+    tn.textContent=t+'s';
+    const offset=CIRCUMFERENCE*(1-t/TIMER);
+    ring.style.strokeDashoffset=offset;
+    if(t<=5){tn.classList.add('urgent');ring.classList.add('urgent')}
+    if(t<=0){clearInterval(iv);doRedirect()}
+  },1000);
+  
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    if(PIXEL_ID && PIXEL_ID.trim()!=='' && typeof fbq!=='undefined') fbq('track','Lead');
+    clearInterval(iv);
+    doRedirect();
+  },{once:true});
+}
+
+run();
+</script>
+</body>
+</html>
